@@ -47,7 +47,12 @@ int Queue::dequeue(){
      NodePtr t=headPtr;
      int value= t->get_value();
      /* Add head and tail for me please */
-     headPtr=headPtr->get_next();
+     if(size==1)
+     {
+        headPtr=NULL;
+        tailPtr=NULL;
+     }
+     else headPtr=headPtr->get_next();
 
      size--;
           
