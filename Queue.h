@@ -55,6 +55,8 @@ int Queue::dequeue(){
      else headPtr=headPtr->get_next();
 
      size--;
+
+     cout<<"Dequeing "<<value<<endl;
           
      delete t;
      return value;
@@ -75,14 +77,9 @@ Queue::Queue(){
 Queue::~Queue(){
     //delete all remaning Queue (i.e. DQ all) 
     cout<<"Clearing queue"<<endl;
-    NodePtr t;
-    for (int i=0; i<size; i++)
+    while(size!=0)
     {
-        t=headPtr;
-        headPtr=headPtr->get_next();
-
-        cout<<"Dequeing "<<t->get_value()<<endl;
-        delete t;
+      dequeue();
     }
     
 }
